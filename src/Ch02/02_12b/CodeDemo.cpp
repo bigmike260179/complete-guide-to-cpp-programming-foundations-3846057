@@ -3,17 +3,19 @@
 // Type Inference with auto, by Eduardo Corpeño 
 
 #include <iostream>
-#include <typeinfo>
+#include <typeinfo>     // Needed to use 'typeid'
 
-int main(){
-    auto score;
-    auto points;
-    auto height;
-    auto duration;
-    auto is_active;
-    auto initial;
-    auto title;
+int main()
+{
+    auto score = 8;
+    auto points = 12345678901;
+    auto height = 6.2f;
+    auto duration = 90.0;
+    auto is_active = true;
+    auto initial = 'P';
+    auto title = "Soccer Champions";
 
+    // The code below displays the type of variable the compiler assigned to them with the auto keyword
     std::cout << "The type of score is " << typeid(score).name() << std::endl;
     std::cout << "The type of points is " << typeid(points).name() << std::endl;
     std::cout << "The type of height is " << typeid(height).name() << std::endl;

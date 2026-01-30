@@ -5,15 +5,25 @@
 #include <iostream>
 #include <cstdint>
 
-enum asset_type {texture, sound, animation, script};
+// c-style enumeration listing
+//enum asset_type {texture, sound, animation, script};
+//enum menu_section {background, music, sound, controls, texture};    // same names in both enums
 
-int main(){
-    int asset_value;
+//Using enum classes:
+enum class asset_type {texture, sound, animation, script};
+enum class menu_section {background, music, sound, controls, texture};
 
-    asset_value = sound;
+int main()
+{
+    int sound = 8;      // Compiler does not complain about this conflict
+                        // Compiler uses the local variables before global ones
+    // int asset_value;
+    asset_type asset_value;     // Create an asset_type object to get rid of assignment error
+    asset_value = asset_type::sound;
 
-    std::cout << "asset_value = " << asset_value << std::endl;
+    std::cout << "asset_value = " << (int) asset_value << std::endl;    //Must cast int here for number value
 
     std::cout << std::endl << std::endl;
+    
     return 0;
 }
